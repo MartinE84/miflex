@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FlexBox</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+	<div class="contenedor">
+		<div class="elemento elemento1">1</div>
+		<div class="elemento elemento2">2</div>
+		<div class="elemento elemento3">3</div>
+		<div class="elemento elemento4">4</div>
+	</div>
+</body>
+</html>
+
+<style>
+	.contenedor{
+		width: 500px;
+		height: 200px;
+		padding: 10px;
+		border: 10px solid orange;
+		margin: 20px;
+
+		display:flex;
+		
+	/*	flex-direction: row; /*row^, row-reverse, column, column-reverse */
+		/*determina la direccion de los elementos, como se van a acomodar en base a las propiedades que vienen despues*/
+
+	/*	flex-wrap: wrap; /* no-wrap^ -> Pone los elementos en linea pero no respeta el width fijo que establecemos en css (siempre y cuando lo elementos no 					entren en el contenedor), wrap, wrap-reverse */
+	/*	flex-flow: row wrap; /* Es un atajo y recibe los valores de: "flex-direction" y "flex-wrap" */ 
+
+		flex-wrap: nowrap;
+		flex-direction: row;		
+
+		/* flex-wrap: wrap;
+		flex-direction: column; */
+		/*ALINEACIONES*/
+
+		/*horizontal*/
+		justify-content: center; /*flex-start^, flex-end, center, space-around, space-between -> separa elementos a la derecha y a la izquierda si solo tengo 2*/
+		
+		/*vertical - cuando tenemos una sola fila*/
+		align-items: center; /*flex-start^, flex-end*, center, stectch-> para que funcione, el elemento no tiene que tener un height fijo, baseline*/
+		
+		/*vertical - solo funciona cuando tenenmos mas de una fila o linea con wrap*/
+		/*align-content: center; /*flex-start^, flex-end, center, space-around, space-between */
+
+
+		 
+	}	
+
+	.elemento{
+		/*flex-grow: 1;/* sirve para hacer crecer un elemento hasta completar el 100% del contenedor. por cada pixel que el elemento se estira con grow-1, grow-2 se estira 2 pixeles, y asi suscesivamente*/
+		/*flex-shrink: 1;/* es lo mismo que flex grow, pero en vez de estirar al elemento, lo enconge*/
+		/*flex-basis: 350px;	
+		/*flex: 1 1 350px; /*este es un short cut y representa a f-grow, f-shrink, y f-basis*/
+		/* flex: 1 1; esto es f-grow y f-shrink*/
+		flex: 1; /* esto es f-grow y f-shrink */
+		flex-basis: 50px;
+
+		color: #fff;
+		margin: 5px;
+/* 		width: 50px;  */
+		/*flex-basis: 150px; /* sinonimo de width o height dependiendo la flex directions*/
+		height: 50px;
+		background: green;
+		text-align: center;
+		order:2;
+	}
+
+
+	.elemento2{
+	/*	flex-grow: 2;/*este crece el porcentaje de crecimiento es el doble de grow 1, pero no es el doble del contenedor que te tiene grow 1*/
+	/*	flex-shrink: 2;/* es lo mismo que flex grow, pero en vez de estirar al elemento, lo enconge*/	
+	order: 1; /*si a los demas elementos no se le indica ningun order, entonces va a ser el 1*primero de la derecha. sino se va al primero de la izq.*/	
+	}
+
+	.elemento3{
+		align-self: flex-start;/*flex-start^, flex-end*, center, stectch (tiene qe tener height:auto;), baseline*/
+	}
+</style>
